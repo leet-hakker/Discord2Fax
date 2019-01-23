@@ -1,4 +1,7 @@
 #Importing the necessary libraries
+from dotenv import load_dotenv
+load_dotenv()
+import os
 import discord
 from discord.ext import commands
 from discord.ext.commands import bot
@@ -24,4 +27,4 @@ async def on_message(message):
 	print(message)
 
 #This is the client token. Do not share it with anyone, otherwise they will have full access to the application.
-bot.run("NTM3MzU5MzI0NTE5ODU4Mjgx.Dyo7vg.BRpL9xFl_B-mMNa5TMO7kANLlHg")
+bot.run(os.getenv("API_KEY"))
