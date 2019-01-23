@@ -23,5 +23,5 @@ async def on_message(message):
 	#Outputting the message for testing
 	print(message)
 
-#This is the client secret. Do not share it with anyone, otherwise they will have full access to the application.
+#This is the client token. Do not share it with anyone, otherwise they will have full access to the application.
 bot.run("NTM3MzU5MzI0NTE5ODU4Mjgx.Dyo7vg.BRpL9xFl_B-mMNa5TMO7kANLlHg")
