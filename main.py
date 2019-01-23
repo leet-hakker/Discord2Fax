@@ -28,13 +28,16 @@ async def on_ready():
 @bot.event
 async def on_message(message):
     # Opening a text file as a variable for easy access
-    text_file = open("print.txt", "a+")
+    text_file = open("print.txt", "a+", encoding="utf-8")
     # Creating a variable that contains the message
+
+    sender = message.author.name
     message = message.content
+
     # Outputting the message for testing
-    text_file.write("\n" + message)
-    text_file.close
+    text_file.write('\n' + sender + ': ' + message)
+    text_file.close()
 
 
-# This is the client token. Do not share it with anyone, otherwise they will have full access to the application.
+# This is the client token. Do not share it with anyone, otherwise they will have full access to the application. Keep it in an environment variable!
 bot.run(os.getenv("API_KEY"))
