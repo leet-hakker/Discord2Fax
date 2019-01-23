@@ -1,1 +1,3 @@
+# Create a .env file with the following environment variables in the format VARIABLE=VALUE
+
 API_KEY=
