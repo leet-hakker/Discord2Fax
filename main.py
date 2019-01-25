@@ -2,9 +2,11 @@
 # -*- coding: <utf-8> -*-
 
 # Importing the necessary libraries
+# Library is calle python-dotenv never forgetti
 from dotenv import load_dotenv
 
 load_dotenv()
+
 import os
 import discord
 from discord.ext import commands
@@ -31,13 +33,15 @@ async def on_message(message):
     text_file = open("print.txt", "a+", encoding="utf-8")
     # Creating a variable that contains the message
 
+    time = message.timestamp
     sender = message.author.name
     message = message.content
 
     # Outputting the message for testing
-    text_file.write('\n' + sender + ': ' + message)
+    text_file.write('\n' + str(time) + '\n' + sender + ': ' + message)
     text_file.close()
 
 
-# This is the client token. Do not share it with anyone, otherwise they will have full access to the application. Keep it in an environment variable!
-bot.run(os.getenv("API_KEY"))
+# This is the client token. Do not share it with anyone, otherwise they will have full access to the application.
+# Keep it in an environment variable!
+bot.run("API_TOKEN")
