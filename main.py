@@ -20,7 +20,7 @@ command_prefix = ")"
 bot = commands.Bot(command_prefix)
 
 
-# Telling me when it is online
+# Telling you when it is online
 @bot.event
 async def on_ready():
     print("Ready when you are\n\n")
@@ -31,12 +31,17 @@ async def on_ready():
 async def on_message(message):
     # Opening a text file as a variable for easy access
     text_file = open("print.txt", "a+", encoding="utf-8")
+    # Creating a variable that contains the message
+
+    time = message.timestamp
+    sender = message.author.name
+    content = message.clean_content
 
     # Outputting the message for testing
-    text_file.write('\n' + str(message.timestamp) + '\n' + message.author.name + ': ' + message.content)
+    text_file.write('\n' + str(time) + '\n' + sender + ': ' + content)
     text_file.close()
 
 
 # This is the client token. Do not share it with anyone, otherwise they will have full access to the application.
 # Keep it in an environment variable!
-bot.run(os.getenv('API_TOKEN'))
+bot.run(os.getenv("API_KEY"))
